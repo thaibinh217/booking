@@ -1,29 +1,20 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx,vue,html}"],
-  theme: {
-    screens: {
-      sm: "440px",
-      md: "768px",
-      lg: "1024px",
-      xl: "1280px",
-      "2xl": "1536px",
-    },
-  },
-  plugins: [],
-};
-module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"], // đảm bảo scan đúng file
+export default {
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+      },
       keyframes: {
-        "bounce-in": {
-          "0%": { opacity: "0", transform: "scale(0.7)" },
-          "100%": { opacity: "1", transform: "scale(1)" },
+        shake: {
+          "0%, 100%": { transform: "translateX(0)" },
+          "25%": { transform: "translateX(-4px)" },
+          "50%": { transform: "translateX(4px)" },
+          "75%": { transform: "translateX(-2px)" },
         },
       },
       animation: {
-        "bounce-in": "bounce-in 0.3s ease-out",
+        shake: "shake 0.4s ease-in-out",
       },
     },
   },
