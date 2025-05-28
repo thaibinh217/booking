@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, ShoppingCart, User } from "lucide-react";
+import { Menu, X, User, Bell } from "lucide-react";
 import { Link } from "react-router-dom";
 import bookingLogo from "../assets/booking.png";
 
@@ -67,12 +67,13 @@ const Navbar = () => {
         {/* Desktop Buttons */}
         <div className="hidden md:flex items-center gap-8">
           <Link
-            to="/cart"
-            className="text-black x hover:text-gray-900 focus:text-gray-900 transition-all
-            duration-200 hover:scale-105 focus:scale-105"
+            to="/notifications"
+            className="text-black hover:text-gray-900 focus:text-gray-900 transition-all
+  duration-200 hover:scale-105 focus:scale-105"
           >
-            <ShoppingCart size={22} />
+            <Bell size={22} />
           </Link>
+
           {isLoggedIn ? (
             <Link to="/profile" className="text-black ">
               <User size={22} />
