@@ -8,7 +8,7 @@ const Navbar = () => {
   const isLoggedIn = false;
 
   return (
-    <nav className="bg-white/80 backdrop-blur-md shadow-md fixed top-0 left-0 right-0 z-50">
+    <nav className="bg-white/80 backdrop-blur-md shadow-md fixed top-0 left-0 right-0 z-50 mb-20">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo + Website Name */}
         <Link
@@ -28,7 +28,7 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-14 text-black font-medium">
           <Link
             to="/"
-            className="text-base hover:text-gray-900  focus:bg-gray-900 transition-all
+            className="text-base hover:text-gray-900 focus:text-gray-900 transition-all
             duration-200 hover:scale-105 focus:scale-105"
           >
             Home

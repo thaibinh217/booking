@@ -44,32 +44,34 @@ const HeroParallax = ({ products = [] }) => {
   return (
     <div
       ref={ref}
-      className="h-[300vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="relative flex flex-col overflow-hidden antialiased"
     >
       <Header />
-      <motion.div
-        style={{ rotateX, rotateZ, translateY, opacity }}
-        className=""
-      >
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
-          {firstRow.map((product: any, index) => (
-            <ProductCard
-              product={product}
-              translate={translateX}
-              key={product.title || index}
-            />
-          ))}
+      <div className="h-[200vh] [perspective:1000px] [transform-style:preserve-3d] mt-5">
+        <motion.div
+          style={{ rotateX, rotateZ, translateY, opacity }}
+          className="sticky top-0"
+        >
+          <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
+            {firstRow.map((product: any, index) => (
+              <ProductCard
+                product={product}
+                translate={translateX}
+                key={`${product.title}-${index}`}
+              />
+            ))}
+          </motion.div>
+          <motion.div className="flex flex-row mb-20 space-x-20">
+            {secondRow.map((product: any, index) => (
+              <ProductCard
+                product={product}
+                translate={translateXReverse}
+                key={`${product.title}-${index}`}
+              />
+            ))}
+          </motion.div>
         </motion.div>
-        <motion.div className="flex flex-row mb-20 space-x-20">
-          {secondRow.map((product: any, index) => (
-            <ProductCard
-              product={product}
-              translate={translateXReverse}
-              key={product.title || index}
-            />
-          ))}
-        </motion.div>
-      </motion.div>
+      </div>
     </div>
   );
 };
@@ -79,7 +81,7 @@ export default HeroParallax;
 export const Header = () => {
   return (
     <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full left-0 top-0">
-      <h1 className="text-2xl md:text-7xl font-bold dark:text-white leading-tight">
+      <h1 className="text-2xl md:text-7xl font-bold dark:text-white leading-tight mt-10 left-5">
         Find Your Perfect Stay <br /> Wherever You Go
       </h1>
       <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200 leading-relaxed">
@@ -104,13 +106,9 @@ export const ProductCard = ({ product, translate }) => {
           height="600"
           width="600"
           className="object-cover object-left-top absolute h-full w-full inset-0"
-          alt={product.title || "Product"}
         />
       </a>
       <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none"></div>
-      <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
-        {product.title || "No Title"}
-      </h2>
     </motion.div>
   );
 };
